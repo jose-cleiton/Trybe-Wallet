@@ -7,9 +7,7 @@ import {
 import Gastos from './Gastos';
 import Cambio from './Cambio';
 
-
 export default function Header() {
-
   const email = useSelector(({ user }) => user.email);
   return (
     <header>
