@@ -1,7 +1,9 @@
 /** @format */
 
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import {
+  useSelector,
+} from 'react-redux';
 
 export default function Header() {
   const email = useSelector(({ user }) => user.email);
@@ -9,7 +11,12 @@ export default function Header() {
     <header>
       <p>
         Email:
-        <span data-testid="email-field"> {email}</span>
+        <span data-testid="email-field">
+
+          {email}
+
+        </span>
+
       </p>
     </header>
   );
