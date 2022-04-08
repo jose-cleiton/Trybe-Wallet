@@ -6,6 +6,7 @@ const Wallet = () => (
     <Header />
     <section>
       <h1>Wallet</h1>
+
     </section>
   </div>
 );
