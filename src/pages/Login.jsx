@@ -1,3 +1,5 @@
+/** @format */
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { salvarEmail } from '../actions';
@@ -10,8 +12,10 @@ const Login = (props) => {
   const dispatch = useDispatch();
 
   const passarProEstado = () => {
-  // desconstruir ristory
-    const { history: { push } } = props;
+    // desconstruir ristory
+    const {
+      history: { push },
+    } = props;
     // mandando do local para o global
     dispatch(salvarEmail(email));
     // direcionar para
@@ -36,10 +40,14 @@ const Login = (props) => {
         onClick={ passarProEstado }
       >
         Entrar
-
       </button>
     </section>
   );
 };
-
+Login.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+  saveUserEmail: PropTypes.func,
+}.isRequired;
 export default Login;

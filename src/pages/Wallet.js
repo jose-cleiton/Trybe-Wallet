@@ -1,6 +1,14 @@
+/** @format */
+
 import React from 'react';
+import Header from '../components/Header';
 
 const Wallet = () => (
-  <h1>Wallet</h1>
+  <div>
+    <Header />
+    <section>
+      <h1>Wallet</h1>
+    </section>
+  </div>
 );
 export default Wallet;
