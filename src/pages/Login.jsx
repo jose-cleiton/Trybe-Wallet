@@ -1,7 +1,6 @@
-/** @format */
-
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import propTypes from 'prop-types';
 import { salvarEmail } from '../actions';
 
 const Login = (props) => {
@@ -45,9 +44,9 @@ const Login = (props) => {
   );
 };
 Login.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
+  history: propTypes.shape({
+    push: propTypes.func,
   }),
-  saveUserEmail: PropTypes.func,
+  saveUserEmail: propTypes.func,
 }.isRequired;
 export default Login;
