@@ -8,8 +8,6 @@ const Cambio = () => {
     const fetchCambio = async () => {
       const data = await (await fetch('https://economia.awesomeapi.com.br/json/all')).json();
       const moedas = Object.keys(data).filter((cambio) => cambio !== 'USDT');
-
-      console.log(moedas);
       dispatch(pegarMoeda(moedas));
     };
 
