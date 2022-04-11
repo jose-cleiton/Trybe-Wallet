@@ -47,9 +47,10 @@ const Wallet = () => {
                   ).toFixed(2) * parseFloat(
                     exchangeRates[currency].ask,
                   ).toFixed(2)}
-
                 </td>
-                <td />
+                <td>
+                  {}
+                </td>
                 <td>
                   <button type="button">Editar</button>
                   <button type="button">Excluir</button>

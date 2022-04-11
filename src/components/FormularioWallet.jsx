@@ -7,7 +7,6 @@ import { salvarDespesa, pegarMoeda } from '../actions';
 
 const FormularioWallet = () => {
   const moedas = useSelector(({ wallet }) => Object.keys(wallet?.currencies));
-  const moedasInf = useSelector(({ wallet }) => wallet?.currencies);
   const [id, setID] = useState(0);
   const [value, setValor] = useState(0);
   const [currency, setMoeda] = useState('USD');
@@ -49,6 +48,7 @@ const FormularioWallet = () => {
       delete data.USDT;
       dispatch(pegarMoeda(data));
     };
+    console.log(test);
   }, []);
 
   return (
