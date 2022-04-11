@@ -9,7 +9,7 @@ const Cambio = () => {
       const data = await (await fetch('https://economia.awesomeapi.com.br/json/all')).json();
       delete data.USDT;
       dispatch(pegarMoeda(data));
-      console.log(data);
+     
     };
 
     fetchCambio();

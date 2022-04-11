@@ -6,8 +6,9 @@ import {
 import { salvarDespesa, pegarMoeda } from '../actions';
 
 const FormularioWallet = () => {
-  const moedas = useSelector(({ wallet }) => Object.keys(wallet?.currencies));
-  const moedasInf = useSelector(({ wallet }) => wallet?.currencies);
+  const moedas = useSelector(({ wallet }) =>wallet?.currencies);
+console.log(moedas);
+  // const moedasInf = useSelector(({ wallet }) => wallet?.currencies);
   const [id, setID] = useState(0);
   const [value, setValor] = useState(0);
   const [currency, setMoeda] = useState('USD');
@@ -20,15 +21,11 @@ const FormularioWallet = () => {
   const fetchCambio = async () => {
     const data = await fetch('https://economia.awesomeapi.com.br/json/all')
       .then((resp) => resp.json());
-  //  delete data.USDT;
-    console.log('Deu certo');
 
     return data;
-    // setExchangeRates(data);
   };
   const adcionaDespesa = async () => {
     const exchangeRates = await fetchCambio();
-    console.log(exchangeRates);
 
     dispatch(salvarDespesa({
       id,
@@ -70,16 +67,16 @@ const FormularioWallet = () => {
       </div>
 
       <div>
-        <label htmlFor="id-moeda">
+        <label htmlFor="currency">
           Moeda
           <select
             onChange={ ({ target: { value: valor } }) => setMoeda(valor) }
-            id="id-moeda"
+            id="currency"
             data-testid="currency-input"
             value={ currency }
 
           >
-            {moedas.map((item, key) => (<option key={ key }>{item}</option>))}
+            {moedas.map((item, key) => <option key={ key }>{ item }</option>)}
           </select>
 
         </label>
