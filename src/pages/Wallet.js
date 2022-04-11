@@ -27,39 +27,41 @@ const Wallet = () => {
           </tr>
         </thead>
         <tbody>
-          {expenses.map(
-            ({ id, value, currency, method, description, tag, exchangeRates }) => (
-              <tr key={ id }>
-                <td>{description}</td>
-                <td>{tag}</td>
-                <td>{method}</td>
-                <td>{parseFloat(value).toFixed(2)}</td>
-                <td>{exchangeRates[currency].name}</td>
-                <td>
-                  {parseFloat(
-                    exchangeRates[currency].ask,
-                  ).toFixed(2)}
-
-                </td>
-                <td>
-                  {parseFloat(
-                    value,
-                  ).toFixed(2) * parseFloat(
-                    exchangeRates[currency].ask,
-                  ).toFixed(2)}
-                </td>
-                <td>
-                  {}
-                </td>
-                <td>
-                  <button type="button">Editar</button>
-                  <button type="button">Excluir</button>
-                </td>
-              </tr>
-            ),
-          )}
+          {expenses.map(({
+            description,
+            tag,
+            method,
+            value,
+            currency,
+            exchangeRates,
+            id,
+          }) => (
+            <tr key={ id }>
+              <td>{description}</td>
+              <td>{tag}</td>
+              <td>{method}</td>
+              <td>{parseFloat(value).toFixed(2)}</td>
+              <td>{exchangeRates[currency].name.split('/')[0]}</td>
+              <td>{parseFloat(exchangeRates[currency].ask).toFixed(2)}</td>
+              <td>{(value * exchangeRates[currency].ask).toFixed(2)}</td>
+              <td>Real</td>
+              <td>
+                <button
+                  type="button"
+                  data-testid="edit-btn"
+                >
+                  Editar
+                </button>
+                <button
+                  type="button"
+                  data-testid="delete-btn"
+                >
+                  Excluir
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
-
       </table>
 
     </div>
