@@ -6,11 +6,10 @@ const Cambio = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const fetchCambio = async () => {
-      const response = await fetch('https://economia.awesomeapi.com.br/json/all');
-      const data = await response.json();
+      const data = await (await fetch('https://economia.awesomeapi.com.br/json/all')).json();
       delete data.USDT;
-      dispatch(pegarMoeda(Object.keys(data)));
-      console.log(Object.keys(data));
+      dispatch(pegarMoeda(data));
+      console.log(data);
     };
 
     fetchCambio();

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import {
   useSelector,
   useDispatch,
@@ -7,22 +7,24 @@ import { salvarDespesa, pegarMoeda } from '../actions';
 
 const FormularioWallet = () => {
   const moedas = useSelector(({ wallet }) => Object.keys(wallet?.currencies));
+  const moedasInf = useSelector(({ wallet }) => wallet?.currencies);
   const [id, setID] = useState(0);
   const [value, setValor] = useState(0);
   const [currency, setMoeda] = useState('USD');
   const [method, setmtdPagamento] = useState('Dinheiro');
   const [description, setDescricao] = useState('');
   const [tag, setcategoria] = useState('Alimentação');
-
+  // const [exchangeRates, setExchangeRates] = useState({});
   const dispatch = useDispatch();
 
   const fetchCambio = async () => {
     const data = await fetch('https://economia.awesomeapi.com.br/json/all')
       .then((resp) => resp.json());
-    //  delete data.USDT;
+  //  delete data.USDT;
     console.log('Deu certo');
 
     return data;
+    // setExchangeRates(data);
   };
   const adcionaDespesa = async () => {
     const exchangeRates = await fetchCambio();
@@ -48,7 +50,6 @@ const FormularioWallet = () => {
       delete data.USDT;
       dispatch(pegarMoeda(data));
     };
-    console.log(test);
   }, []);
 
   return (
