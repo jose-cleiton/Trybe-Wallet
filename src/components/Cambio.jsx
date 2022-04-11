@@ -7,8 +7,8 @@ const Cambio = () => {
   useEffect(() => {
     const fetchCambio = async () => {
       const data = await (await fetch('https://economia.awesomeapi.com.br/json/all')).json();
-      const moedas = Object.keys(data).filter((cambio) => cambio !== 'USDT');
-      dispatch(pegarMoeda(moedas));
+      delete data.USDT;
+      dispatch(pegarMoeda(data));
     };
 
     fetchCambio();
