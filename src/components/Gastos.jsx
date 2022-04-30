@@ -17,11 +17,9 @@ const Gastos = () => {
   );
 
   return (
-
-    <span data-testid="total-field">
-      {valorGastos()}
-    </span>
-
+    <div>
+      <span data-testid="total-field">{valorGastos()}</span>
+    </div>
   );
 };
 

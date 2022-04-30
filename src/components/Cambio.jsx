@@ -8,20 +8,16 @@ const Cambio = () => {
     const fetchCambio = async () => {
       const data = await (await fetch('https://economia.awesomeapi.com.br/json/all')).json();
       delete data.USDT;
-      dispatch(pegarMoeda(data));
-     
+      dispatch(pegarMoeda(Object.keys(data)));
     };
 
     fetchCambio();
   }, [dispatch]);
 
   return (
-
-    <section>
-
-      <p data-testid="header-currency-field">BRL</p>
-    </section>
-
+    <div>
+      <span data-testid="header-currency-field">BRL</span>
+    </div>
   );
 };
 

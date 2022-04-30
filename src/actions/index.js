@@ -17,3 +17,24 @@ export const salvarDespesa = (payload) => ({
   type: SALVAR_DESPESA,
   payload,
 });
+
+export const ATUALIZA_DESPESA = 'ATUALIZA_DESPESA';
+export const deletaDespesa = (payload) => ({
+  type: ATUALIZA_DESPESA,
+  payload,
+});
+export const EDITA_DESPESA = 'EDITA_DESPESA';
+export const editaDespesa = (payload) => ({
+  type: EDITA_DESPESA,
+  payload,
+});
+export const MODO_EDICAO = 'MODO_EDICAO';
+export const modoEdicao = (payload) => ({
+  type: MODO_EDICAO,
+  payload,
+});
+
+export const atualizaDespesa = (payload) => ({
+  type: ATUALIZA_DESPESA,
+  payload,
+});
