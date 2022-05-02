@@ -10,13 +10,13 @@ const FormularioWallet = () => {
   const itemAtualExpenses = useSelector(({ wallet }) => wallet?.itemAtualExpenses);
   const modoBtn = useSelector(({ wallet }) => wallet?.modoBtnEdicao);
   const despesaAtual = useSelector(({ wallet }) => wallet?.expenses);
-
+  const Al = 'Alimentação';
   const [id, setID] = useState(0);
   const [value, setValor] = useState(0);
   const [currency, setMoeda] = useState('USD');
   const [method, setmtdPagamento] = useState('Dinheiro');
   const [description, setDescricao] = useState('');
-  const [tag, setcategoria] = useState('Alimentação');
+  const [tag, setcategoria] = useState(Al);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,9 +33,9 @@ const FormularioWallet = () => {
       setMoeda('USD');
       setmtdPagamento('Dinheiro');
       setDescricao('');
-      setcategoria('Alimentação');
+      setcategoria(Al);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modoBtn]);
 
   const fetchExchange = async () => {
